@@ -709,6 +709,7 @@ $wgConf->settings = array(
 		'extloadwiki' => true,
 		'grandtheftwikiwiki' => true,
 		'jakeperswiki' => true,
+		'sthomaspriwiki' => true,
 		'testauthorprotectwiki' => true,
 		'trexwiki' => true,
 	),
@@ -2935,6 +2936,12 @@ $wgConf->settings = array(
 				'rollback' => true,
 			),
 		),
+		'+sthomaspri' => array(
+			'bureaucrat' => array(
+				'block' => true,
+				'blockemail' => true,
+			),
+		),
 		'+trexwiki' => array(
 			'co' => array(
 				'co' => true,
@@ -4145,6 +4152,7 @@ if ( $wgDBname == 'extloadwiki' || $wgDBname == 'allthetropeswiki' ) {
 $wgDefaultUserOptions['enotifwatchlistpages'] = 0;
 $wgDefaultUserOptions['usebetatoolbar'] = 1;
 $wgDefaultUserOptions['usebetatoolbar-cgd'] = 1;
+
 	
 // Jayuwikiwiki ovverides
 if ( $wgDBname === 'jayuwikiwiki' ) {
@@ -4155,6 +4163,13 @@ if ( $wgDBname === 'jayuwikiwiki' ) {
 	$wgGroupPermissions['user']['move-rootuserpages'] = false;
 	$wgGroupPermissions['user']['upload'] = false;
 	$wgGroupPermissions['user']['reupload-shared'] = false;
+}
+
+// sthomaspriwiki ovverides
+if ( $wgDBname === 'sthomaspriwikiwiki' ) {
+
+	$wgGroupPermissions['sysop']['block'] = false;
+	$wgGroupPermissions['sysop']['blockemail'] = false;
 }
 
 // TestWiki overrides
